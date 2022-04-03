@@ -64,7 +64,13 @@
                             <constraint firstItem="Jka-Pj-MXn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mbv-yN-4ci"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="mCs-5d-hK4"/>
+                    <navigationItem key="navigationItem" title="Notes" id="mCs-5d-hK4">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="u2P-gC-G6v">
+                            <connections>
+                                <action selector="didTabAddButton:" destination="BYZ-38-t0r" id="Znc-gh-g6B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="noNotesLabel" destination="Jka-Pj-MXn" id="rm9-VO-ZDp"/>
                         <outlet property="tableView" destination="DgX-NG-Ubb" id="rvg-Pt-Xkr"/>
@@ -74,31 +80,94 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Note View Controller-->
         <scene sceneID="ULi-g4-Uq1">
             <objects>
-                <viewController id="kwK-KQ-RKu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" id="kwK-KQ-RKu" customClass="AddNoteViewController" customModule="NoteBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XwU-3V-tpB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mo5-x9-RCT">
+                                <rect key="frame" x="20" y="54" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="LU5-3o-rdf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Type Note.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yn8-gO-NbI">
+                                <rect key="frame" x="20" y="122" width="374" height="671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jjJ-Fd-bjh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yn8-gO-NbI" firstAttribute="trailing" secondItem="mo5-x9-RCT" secondAttribute="trailing" id="DbC-PG-GXY"/>
+                            <constraint firstItem="jjJ-Fd-bjh" firstAttribute="trailing" secondItem="mo5-x9-RCT" secondAttribute="trailing" constant="20" id="W3W-dN-jTe"/>
+                            <constraint firstItem="Yn8-gO-NbI" firstAttribute="top" secondItem="mo5-x9-RCT" secondAttribute="bottom" constant="8" id="XCt-9Q-XN9"/>
+                            <constraint firstItem="Yn8-gO-NbI" firstAttribute="leading" secondItem="mo5-x9-RCT" secondAttribute="leading" id="ZcS-3X-1Kr"/>
+                            <constraint firstItem="mo5-x9-RCT" firstAttribute="top" secondItem="jjJ-Fd-bjh" secondAttribute="top" constant="10" id="fbl-v3-sAg"/>
+                            <constraint firstItem="mo5-x9-RCT" firstAttribute="leading" secondItem="jjJ-Fd-bjh" secondAttribute="leading" constant="20" id="feN-6q-7Ks"/>
+                            <constraint firstItem="jjJ-Fd-bjh" firstAttribute="bottom" secondItem="Yn8-gO-NbI" secondAttribute="bottom" constant="20" id="vUd-AQ-u4O"/>
+                        </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="oav-ub-p4G"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="sGQ-jN-hi4">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="c6x-dH-MIz"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bodyField" destination="Yn8-gO-NbI" id="rTm-Ed-gm4"/>
+                        <outlet property="titleField" destination="mo5-x9-RCT" id="l6t-2k-nnR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leg-k3-BdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="88"/>
+            <point key="canvasLocation" x="1612" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Note View Controller-->
         <scene sceneID="y6b-99-HcO">
             <objects>
-                <viewController id="AJZ-vG-zsA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoteViewController" id="AJZ-vG-zsA" customClass="NoteViewController" customModule="NoteBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFd-Na-TE3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtb-zc-nQ5">
+                                <rect key="frame" x="10" y="44" width="394" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QU8-dd-bjD">
+                                <rect key="frame" x="10" y="78" width="394" height="784"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4ev-Cg-9GL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4ev-Cg-9GL" firstAttribute="trailing" secondItem="vtb-zc-nQ5" secondAttribute="trailing" constant="10" id="Bht-j7-l9m"/>
+                            <constraint firstItem="vtb-zc-nQ5" firstAttribute="leading" secondItem="4ev-Cg-9GL" secondAttribute="leading" constant="10" id="FUq-4F-F9Y"/>
+                            <constraint firstItem="4ev-Cg-9GL" firstAttribute="bottom" secondItem="QU8-dd-bjD" secondAttribute="bottom" id="QT6-ht-B8f"/>
+                            <constraint firstItem="QU8-dd-bjD" firstAttribute="top" secondItem="vtb-zc-nQ5" secondAttribute="bottom" constant="10" id="Qbg-OO-F8A"/>
+                            <constraint firstItem="vtb-zc-nQ5" firstAttribute="top" secondItem="4ev-Cg-9GL" secondAttribute="top" id="UzK-JO-b1Y"/>
+                            <constraint firstItem="QU8-dd-bjD" firstAttribute="leading" secondItem="vtb-zc-nQ5" secondAttribute="leading" id="Y9i-WC-J7E"/>
+                            <constraint firstItem="QU8-dd-bjD" firstAttribute="trailing" secondItem="vtb-zc-nQ5" secondAttribute="trailing" id="req-Ix-f8t"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bodyTextView" destination="QU8-dd-bjD" id="1gT-eh-u1E"/>
+                        <outlet property="titleLable" destination="vtb-zc-nQ5" id="93m-cN-4kd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r51-21-5Yz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,6 +193,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
